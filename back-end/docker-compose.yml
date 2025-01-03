@@ -1,0 +1,17 @@
+version: '3.5'
+
+services:
+  postgres:
+    container_name: pg_local
+    image: postgres
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=test
+    volumes:
+       - postgres:/data/postgres
+    ports:
+      - 5432:5432
+    restart: unless-stopped
+volumes:
+    postgres:
